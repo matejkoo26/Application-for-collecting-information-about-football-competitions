@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StadionyController">
+   <children>
+      <VBox prefHeight="420.0" prefWidth="462.0" HBox.hgrow="ALWAYS">
+         <children>
+            <StackPane>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa:">
+                           <HBox.margin>
+                              <Insets left="20.0" right="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField fx:id="inputNazwa" prefHeight="25.0" prefWidth="143.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Miasto:">
+                           <HBox.margin>
+                              <Insets left="20.0" right="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField fx:id="inputMiasto" prefHeight="25.0" prefWidth="103.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ulica:">
+                           <HBox.margin>
+                              <Insets left="20.0" right="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField fx:id="inputUlica" prefHeight="25.0" prefWidth="98.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Numer:">
+                           <HBox.margin>
+                              <Insets left="20.0" right="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField fx:id="inputNumer" prefHeight="25.0" prefWidth="104.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pojemność:">
+                           <HBox.margin>
+                              <Insets left="20.0" right="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TextField fx:id="inputPojemnosc" />
+                     </children>
+                     <StackPane.margin>
+                        <Insets top="10.0" />
+                     </StackPane.margin>
+                  </HBox>
+               </children>
+            </StackPane>
+            <StackPane>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="info" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="879.13671875">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Text>
+                        <Button mnemonicParsing="false" onAction="#onDodaj" text="Dodaj" />
+                     </children>
+                     <StackPane.margin>
+                        <Insets bottom="10.0" />
+                     </StackPane.margin>
+                  </HBox>
+               </children>
+            </StackPane>
+            <TableView fx:id="tabStadiony" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1500.0" prefWidth="470.0" tableMenuButtonVisible="true">
+              <columns>
+                <TableColumn fx:id="colNazwa" minWidth="100.0" prefWidth="216.0" text="Nazwa" />
+                <TableColumn fx:id="colMiasto" minWidth="79.0" prefWidth="175.0" text="Miasto" />
+                  <TableColumn fx:id="colUlica" prefWidth="189.0" text="Ulica" />
+                  <TableColumn fx:id="colNumer" prefWidth="201.0" text="Numer" />
+                  <TableColumn fx:id="colPojemnosc" prefWidth="142.0" text="Pojemność" />
+              </columns>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#usun" text="Usuń" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</HBox>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ZawodnicyController">
+   <children>
+      <StackPane>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <children>
+            <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="1188.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Narodowość">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <ComboBox fx:id="commboNarodowosc" prefWidth="150.0" promptText="&lt;wybierz&gt;" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Klub">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <ComboBox fx:id="comboKlub" prefWidth="150.0" promptText="&lt;wybierz&gt;" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pozycja">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <ComboBox fx:id="comboPozycja" prefWidth="150.0" promptText="&lt;wybierz&gt;" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data urodzenia">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <DatePicker fx:id="datePicker" />
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
+      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="200.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Imię">
+               <HBox.margin>
+                  <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="inputImie" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko">
+               <HBox.margin>
+                  <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="inputNazwisko" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pensja">
+               <HBox.margin>
+                  <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="inputPensja" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wzrost">
+               <HBox.margin>
+                  <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="inputWzrost" />
+         </children>
+      </HBox>
+      <StackPane minHeight="-Infinity" prefHeight="30.0" prefWidth="1200.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <children>
+            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="47.0" prefWidth="1096.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="1097.0" minWidth="10.0" prefWidth="929.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="192.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints minHeight="10.0" valignment="TOP" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text fx:id="info" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="899.13671875" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Button mnemonicParsing="false" onAction="#dodajZawodnika" prefHeight="25.0" prefWidth="107.0" text="Dodaj" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </children>
+      </StackPane>
+      <TabPane fx:id="tabPane">
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" top="10.0" />
+         </VBox.margin>
+         <tabs>
+            <Tab closable="false" text="Zawodnicy">
+               <content>
+                  <TableView fx:id="tablicaZawodnikow" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" tableMenuButtonVisible="true">
+                    <columns>
+                      <TableColumn fx:id="colImie" minWidth="100.0" prefWidth="155.0" text="Imie" />
+                      <TableColumn fx:id="colNazwisko" minWidth="0.0" prefWidth="168.0" text="Nazwisko" />
+                        <TableColumn fx:id="colPensja" minWidth="57.0" prefWidth="170.0" text="Pensja" />
+                        <TableColumn fx:id="colData" maxWidth="528.0" minWidth="111.0" prefWidth="169.0" text="Data urodzenia" />
+                        <TableColumn fx:id="colWzrost" prefWidth="100.0" text="Wzrost" />
+                        <TableColumn fx:id="colPozycja" prefWidth="127.0" text="Pozycja" />
+                        <TableColumn fx:id="colKlub" prefWidth="156.0" text="Klub" />
+                        <TableColumn fx:id="colNarodowosc" prefWidth="129.0" text="Narodowosc" />
+                    </columns>
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#usunMecz" text="Usuń" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TableView>
+               </content>
+
+            </Tab>
+            <Tab fx:id="tabPozycjeNarodowosci" closable="false" text="pozycje i narodowości">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="listaPozycji" layoutX="441.0" layoutY="78.0" prefHeight="266.0" prefWidth="300.0">
+                           <contextMenu>
+                              <ContextMenu>
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#usunPozycje" text="Usuń" />
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </ListView>
+                        <Text layoutX="441.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista pozycji" textAlignment="CENTER" wrappingWidth="293.0" />
+                        <ListView fx:id="listaNarodowosci" layoutX="817.0" layoutY="78.0" prefHeight="266.0" prefWidth="300.0">
+                           <contextMenu>
+                              <ContextMenu>
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#usunNarodowosc" text="Usuń" />
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </ListView>
+                        <Text layoutX="817.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista narodowości" textAlignment="CENTER" wrappingWidth="287.0" />
+                        <Text layoutX="43.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dodaj pozycję" textAlignment="CENTER" wrappingWidth="293.0" />
+                        <TextField fx:id="inputPozycja" layoutX="115.0" layoutY="78.0" />
+                        <TextField fx:id="inputNarodowosc" layoutX="115.0" layoutY="187.0" />
+                        <Text fx:id="textFieldGoleGoscie" layoutX="43.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dodaj narodowość" textAlignment="CENTER" wrappingWidth="293.0" />
+                        <Button layoutX="216.0" layoutY="233.0" mnemonicParsing="false" onAction="#onDodajNarodowosc" text="Dodaj" />
+                        <Button layoutX="216.0" layoutY="117.0" mnemonicParsing="false" onAction="#onDodajPozycje" text="Dodaj" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</VBox>

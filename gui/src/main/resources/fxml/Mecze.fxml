@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MeczeController">
+   <children>
+      <StackPane>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <children>
+            <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="1188.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gospodarze">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <ComboBox fx:id="comboGospodarz" prefWidth="150.0" promptText="&lt;wybierz&gt;" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Goście">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <ComboBox fx:id="comboGość" prefWidth="150.0" promptText="&lt;wybierz&gt;" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stadion">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <ComboBox fx:id="comboStadion" prefWidth="150.0" promptText="&lt;wybierz&gt;" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sędzia">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <ComboBox fx:id="comboSedzia" prefWidth="150.0" promptText="&lt;wybierz&gt;" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data ">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <DatePicker fx:id="datePicker" />
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
+      <StackPane minHeight="-Infinity" prefHeight="30.0" prefWidth="1200.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <children>
+            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="47.0" prefWidth="1096.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="1097.0" minWidth="10.0" prefWidth="929.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="192.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints minHeight="10.0" valignment="TOP" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text fx:id="info" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="899.13671875" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Button mnemonicParsing="false" onAction="#dodajMecz" prefHeight="25.0" prefWidth="107.0" text="Dodaj" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </children>
+      </StackPane>
+      <TabPane fx:id="tabPane">
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" top="10.0" />
+         </VBox.margin>
+         <tabs>
+            <Tab fx:id="tabMecze" closable="false" text="Mecze">
+               <content>
+                  <TableView fx:id="tablicaMeczy" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#onMouseClicked" prefHeight="600.0" tableMenuButtonVisible="true">
+                    <columns>
+                      <TableColumn fx:id="ColGospodarze" minWidth="100.0" prefWidth="184.0" text="Drużyna gospodarzy" />
+                      <TableColumn fx:id="ColGoscie" minWidth="0.0" prefWidth="162.0" text="Drużyna gości" />
+                        <TableColumn fx:id="ColStadion" minWidth="57.0" prefWidth="196.0" text="Stadion" />
+                        <TableColumn fx:id="ColSedzia" maxWidth="528.0" minWidth="111.0" prefWidth="201.0" text="Sędzia" />
+                        <TableColumn fx:id="ColData" prefWidth="186.0" text="Data spotkania" />
+                        <TableColumn fx:id="ColWynik" prefWidth="91.0" text="Wynik" />
+                        <TableColumn fx:id="ColFrekwencja" prefWidth="152.0" text="Frekwencja publiczności" />
+                    </columns>
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#usunMecz" text="Usuń" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TableView>
+               </content>
+
+            </Tab>
+            <Tab fx:id="twTab" closable="false" text="Szczegóły meczu - 20.02.2020r.">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="listaGospodarzy" layoutX="440.0" layoutY="124.0" onMouseClicked="#onListaGospodarzyClicked" prefHeight="266.0" prefWidth="300.0">
+                        </ListView>
+                        <Text layoutX="440.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista zawodników gospodarzy" textAlignment="CENTER" wrappingWidth="293.0" />
+                        <ListView fx:id="listaGosci" layoutX="816.0" layoutY="124.0" onMouseClicked="#onListaGosciClicked" prefHeight="266.0" prefWidth="300.0">
+                        </ListView>
+                        <Text layoutX="816.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista zawodników gości" textAlignment="CENTER" wrappingWidth="287.0" />
+                        <Text fx:id="textSzczegolyMeczu" layoutX="35.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gospodarze - Goście [20.02.2020]" textAlignment="CENTER" wrappingWidth="1121.0">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Text>
+                        <Line endX="1060.0" layoutX="125.0" layoutY="72.0" startX="-100.0" />
+                        <Text layoutX="42.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ile goli strzelił gospodarz" textAlignment="CENTER" wrappingWidth="293.0" />
+                        <TextField fx:id="textFieldGoleGospodarz" layoutX="114.0" layoutY="124.0" />
+                        <TextField fx:id="inputGoleGoscie" layoutX="114.0" layoutY="190.0" />
+                        <Text fx:id="textFieldGoleGoscie" layoutX="42.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ile goli strzelili goście" textAlignment="CENTER" wrappingWidth="293.0" />
+                        <Button layoutX="195.0" layoutY="232.0" mnemonicParsing="false" onAction="#onAktualizujGole" text="Aktualizuj" />
+                        <TextField fx:id="inputFrekwencja" layoutX="114.0" layoutY="323.0" />
+                        <Text fx:id="textFieldGoleGoscie1" layoutX="42.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Frekwencja publiczności" textAlignment="CENTER" wrappingWidth="293.0" />
+                        <Button layoutX="195.0" layoutY="365.0" mnemonicParsing="false" onAction="#onAktualizujFrekwencje" text="Aktualizuj" />
+                        <Text fx:id="infov2" layoutX="14.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="400.13671875" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabStatystyki" closable="false" text="Imie nazwisko - Statystyki">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="textStatystyki" layoutX="28.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imie nazwisko" textAlignment="CENTER" wrappingWidth="1133.13671875">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Text>
+                        <Line endX="1060.0" layoutX="115.0" layoutY="62.0" startX="-100.0" />
+                        <TextField fx:id="textFieldMinuty" layoutX="395.0" layoutY="103.0" prefWidth="400.0" />
+                        <TextField fx:id="textFieldGole" layoutX="395.0" layoutY="156.0" prefWidth="400.0" />
+                        <TextField fx:id="textFieldasysty" layoutX="395.0" layoutY="205.0" prefWidth="400.0" />
+                        <Text layoutX="395.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ile minut" />
+                        <Text layoutX="395.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ile goli" />
+                        <Text layoutX="395.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ile asyst" />
+                        <ComboBox fx:id="comboZolta" layoutX="395.0" layoutY="260.0" prefHeight="25.0" prefWidth="400.0" />
+                        <ComboBox fx:id="comboCzerwona" layoutX="395.0" layoutY="312.0" prefHeight="25.0" prefWidth="400.0" />
+                        <Text layoutX="397.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zółta_kartka" />
+                        <Text layoutX="397.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Czerwona kartka" />
+                        <Button layoutX="727.0" layoutY="355.0" mnemonicParsing="false" onAction="#onAktualizujStatystyki" text="Aktualizuj" />
+                        <Text fx:id="infov3" layoutX="393.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="402.13671875" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</VBox>

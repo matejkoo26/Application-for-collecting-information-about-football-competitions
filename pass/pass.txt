@@ -1,0 +1,3 @@
+Aby uruchomić bazę danych należy zaimportować plik init.txt do bazy Oracle logując się przy pomocy następujących danych:
+Login: hr
+Hasło: hr
